@@ -1,22 +1,51 @@
 # 🧠 PitchPerfect – Semantic Search for Startups
 
-**PitchPerfect** is an intelligent semantic search platform that helps you discover startup-related content using natural language queries. Powered by `FastAPI`, `ChromaDB`, and `SentenceTransformer` embeddings, it delivers relevant, contextual search results — inspired by the AI-querying philosophy of **MindsDB**.
+**PitchPerfect** is an intelligent semantic search platform that helps you discover startup-related content using natural language queries. Powered by `FastAPI`, `ChromaDB`, and `SentenceTransformer` embeddings, it delivers relevant, contextual results — inspired by the ML-querying philosophy of **MindsDB**.
 
 ---
 
-## ✨ What Makes It Unique?
+## 📖 Description
 
-🔍 **Semantic Search, Not Just Keywords**  
-Unlike traditional search engines, PitchPerfect understands the **intent** behind your query.
+PitchPerfect is an **AI-driven search assistant** built for startup discovery. It empowers users to:
 
-💡 **MindsDB-Inspired Architecture**  
-Just like MindsDB lets users query ML models using SQL, PitchPerfect applies that approach to text — enabling AI-native querying of startup information.
+✅ **Search with natural language** (not just keywords)  
+✅ **Analyze startup risk levels** through contextual clues  
+✅ **Summarize startup content** for fast comprehension  
+✅ **Surface top investor picks** based on relevance  
+✅ Use a **MindsDB-style querying approach** with real-time answers
 
-🧠 **MiniLM Embeddings + ChromaDB**  
-Startup data is converted into high-dimensional vectors using `MiniLM-L6-v2` and stored in `ChromaDB` for fast similarity comparison.
+Whether you're a founder, investor, or researcher — PitchPerfect helps you find what **matters**, not just what matches.
 
-⚡ **Real-Time, Relevant Results**  
-Queries like _"early-stage fintech in Asia"_ or _"AI startups after 2021"_ return smart, ranked startup insights.
+---
+
+## ✨ Screenshots
+
+> Replace the image paths with actual screenshot URLs or local files
+
+### 🏠 Homepage
+![Homepage](./screenshots/homepage.png)
+
+### 🔍 Search Results
+![Search Results](./screenshots/results.png)
+
+### 🧠 AI Summary & Risk Analysis
+![AI Summary](./screenshots/summary.png)
+
+---
+
+## 🧠 MindsDB Shortcut
+
+Inspired by [MindsDB](https://mindsdb.com), PitchPerfect integrates the core principle of **AI-native querying**.
+
+Want to build your own ML + database app using SQL?
+
+👉 **Get started instantly with MindsDB:**  
+[🌐 mindsdb.com/docs](https://mindsdb.com/docs)
+
+You’ll learn how to:
+- Run ML models inside your DB
+- Predict data with a single SELECT
+- Build intelligent apps without ML engineering
 
 ---
 
@@ -34,97 +63,95 @@ Queries like _"early-stage fintech in Asia"_ or _"AI startups after 2021"_ retur
 
 ## ⚙️ How It Works
 
-1. **Startup Data**: Stored in `data.csv`
-2. **Backend**:
-   - Reads the CSV
-   - Embeds each row using `SentenceTransformer`
-   - Adds them to a `ChromaDB` collection
-3. **Query**:
-   - User inputs a natural language search
-   - FastAPI embeds the query, searches the DB, and returns top results
-4. **Frontend**:
-   - Fetches `/search?q=...` results
-   - Displays as styled `StartupCard` components
+1. **CSV-based startup data** is loaded into the backend
+2. Each row is embedded using `MiniLM` transformer
+3. Vectors are stored in `ChromaDB` for real-time retrieval
+4. Queries are semantically matched and returned via FastAPI
+5. Frontend displays results as stylized cards — complete with summary, risk tag, and source
 
 ---
 
-## 🧩 MindsDB Influence
+## 🧩 MindsDB-Like Features
 
-PitchPerfect follows the **MindsDB mindset**:
-- Embed intelligence directly into data
-- Query AI models like databases
-- Simplify access to ML-powered results
-
-It replaces MindsDB’s SQL interface with a clean UI and vector backend — but the core idea is the same: **Ask meaningful questions, get meaningful answers**.
-
----
-
-## 📁 Project Structure
-
-pitchperfect/
-├── backend/ # FastAPI server
-│ ├── app.py
-│ ├── data.csv
-│ └── requirements.txt
-├── frontend/ # Next.js frontend
-│ ├── app/
-│ ├── components/
-│ ├── utils/
-│ └── .env.local
-
-yaml
-Copy
-Edit
+| Feature                      | PitchPerfect Style                | MindsDB Inspiration          |
+|-----------------------------|-----------------------------------|------------------------------|
+| Semantic document search    | `/search?q=...` (FastAPI)         | `SELECT * FROM model WHERE` |
+| Vector similarity engine    | ChromaDB + MiniLM embeddings      | AI model predictions         |
+| Risk-level tagging          | Context-aware summary logic       | Predictive field generation |
+| Summary & AI metadata       | Backend preprocessing             | Auto-generated fields        |
 
 ---
 
-## 🚀 Setup & Development
+## 🛠 Local Setup
 
-### Backend
+### Backend (FastAPI)
 
 ```bash
 cd backend
 python -m venv venv
-source venv/bin/activate  # Windows: .\venv\Scripts\activate
+source venv/bin/activate  # or .\venv\Scripts\activate (Windows)
 pip install -r requirements.txt
 uvicorn app:app --reload
-Frontend
+Frontend (Next.js)
 bash
 Copy
 Edit
 cd frontend
 pnpm install
 pnpm dev
-Create .env.local:
+Add .env.local in frontend/:
 
 bash
 Copy
 Edit
 NEXT_PUBLIC_API_URL=http://127.0.0.1:8000
-📦 Deployment Guide
-Frontend: Deploy frontend/ to Vercel
+📁 Project Structure
+pgsql
+Copy
+Edit
+pitchperfect/
+├── backend/
+│   ├── app.py
+│   ├── data.csv
+│   └── requirements.txt
+├── frontend/
+│   ├── components/
+│   ├── utils/
+│   ├── app/
+│   └── .env.local
+└── screenshots/
+    ├── homepage.png
+    ├── results.png
+    └── summary.png
+🚀 Deployment
+Backend on Render
+Deploy backend/
 
-Backend: Deploy backend/ to Render using:
+Use:
 
 sql
 Copy
 Edit
-Start command: uvicorn app:app --host 0.0.0.0 --port 10000
-Set the frontend env var:
+Start Command: uvicorn app:app --host 0.0.0.0 --port 10000
+Frontend on Vercel
+Deploy frontend/
 
-bash
+In your project settings, set:
+
+env
 Copy
 Edit
 NEXT_PUBLIC_API_URL=https://your-backend.onrender.com
-🙋‍♀️ Author
+👤 Author
+@Aanwiie
+UI/UX Designer • Fullstack Dev • Semantic Search Builder
+“Designing apps that don’t just look smart — they are smart.”
+
+📜 License
+MIT License — open to all, for learning or deployment.
+
+
 @Aanwiie
 Designer • Developer • Semantic Search Enthusiast
 “Bringing minds into machines — one query at a time.”
 
-![pp1 (7)](https://github.com/user-attachments/assets/3068f4d4-7099-4b76-8b20-6a2a96cba034)
-![pp1 (6)](https://github.com/user-attachments/assets/e34035f5-3264-4730-b419-5d855d1dd397)
-![pp1 (5)](https://github.com/user-attachments/assets/707b9dac-a2b9-4676-8787-95a19b95d232)
-![pp1 (4)](https://github.com/user-attachments/assets/8cf9ca84-0008-4508-9886-94f99c68f1d1)
-![pp1 (3)](https://github.com/user-attachments/assets/4ea1530a-0969-42d0-a1ae-cf9b9c5ae11e)
-![pp1 (2)](https://github.com/user-attachments/assets/8bfb26da-d528-4d83-b98d-c2677588169d)
-![pp1 (1)](https://github.com/user-attachments/assets/4e7c8b44-92e3-4ae6-864c-fc8990fab0c1)
