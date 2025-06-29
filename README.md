@@ -20,22 +20,32 @@ Whether you're a founder, investor, or researcher — PitchPerfect helps you fin
 
 ## ✨ Screenshots
 
-> Replace the image paths with actual screenshot URLs or local files
 
 ### 🏠 Homepage
-![Homepage](./screenshots/homepage.png)
+![pp1 (1)](https://github.com/user-attachments/assets/87b6107c-263d-418a-bc7e-beade79e3081)
 
 ### 🔍 Search Results
-![Search Results](./screenshots/results.png)
+![pp1 (4)](https://github.com/user-attachments/assets/5762ab43-9b38-4b0f-bd2f-4b372c18268d)
 
 ### 🧠 AI Summary & Risk Analysis
-![AI Summary](./screenshots/summary.png)
-
+![pp1 (5)](https://github.com/user-attachments/assets/de237bb2-1a6b-4d6d-aeae-b27b6148f70a)
 ---
+### Top Picks
+![pp1 (3)](https://github.com/user-attachments/assets/883872ff-6312-4fda-afac-0a305004d531)
+
+
+### About us 
+![pp1 (2)](https://github.com/user-attachments/assets/11190bd9-878e-45be-a6fb-251a9d5ac51d)
 
 ## 🧠 MindsDB Shortcut
 
-Inspired by [MindsDB](https://mindsdb.com), PitchPerfect integrates the core principle of **AI-native querying**.
+![pp1 (7)](https://github.com/user-attachments/assets/244a012e-a2cd-4821-a603-5f9d467e2884) 
+
+###AI-native querying
+![pp1 (6)](https://github.com/user-attachments/assets/3fc6ef77-eb05-4df7-aa27-0c3c7a0ffb08)
+
+
+
 
 Want to build your own ML + database app using SQL?
 
