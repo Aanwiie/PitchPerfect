@@ -1,0 +1,25 @@
+version: "3.8"
+
+services:
+  mindsdb:
+    image: mindsdb/mindsdb
+    container_name: mindsdb_service
+    ports:
+      - "47334:47334"  # HTTP API
+    command: bash -c "python -Im mindsdb --api=http,a2a,mcp"
+    volumes:
+      - mindsdb_data:/opt/mindsdb/data
+    restart: always
+
+  backend:
+    build: ./backend
+    container_name: backend
+    ports:
+      - "5000:5000"
+    env_file:
+      - ./backend/.env
+    depends_on:
+      - mindsdb
+
+volumes:
+  mindsdb_data:

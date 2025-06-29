@@ -1,0 +1,132 @@
+/* ==============================
+   Tailwind layers
+   ============================== */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==============================
+   Google Font
+   ============================== */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+
+/* ---------- Base typography ---------- */
+body {
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+}
+
+/* ---------- Utility additions ---------- */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* ---------- Background imagery ---------- */
+body {
+  background-image: url("/back.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+.content-background {
+  background-image: url("/back.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+/* ---------- Design‑token layer ---------- */
+@layer base {
+  :root {
+    /* Surfaces */
+    --background: 0 0% 100%;      /* pure white   */
+    --foreground: 0 0%   0%;      /* pure black   */
+
+    /* Containers / cards / popovers  */
+    --card:         0 0% 100%;
+    --card-foreground: 0 0% 0%;
+    --popover:      0 0% 100%;
+    --popover-foreground: 0 0% 0%;
+
+    /* Brand colour (dark red) */
+    --primary: 0 73% 42%;          /* #b91c1c      */
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary / light‑red accents */
+    --secondary: 0 88% 86%;        /* #fee2e2      */
+    --secondary-foreground: 0 73% 42%;
+
+    --accent: 0 69% 55%;           /* #f87171      */
+    --accent-foreground: 0 0% 0%;
+
+    /* Neutral / helper */
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+
+    /* Feedback */
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Borders / rings / inputs */
+    --border: 0 0% 90%;
+    --input:  0 0% 94%;
+    --ring:   0 0%   0%;
+
+    /* Chart palette (optional) */
+    --chart-1: 0 73% 42%;
+    --chart-2: 0 69% 55%;
+    --chart-3: 32 95% 55%;
+    --chart-4: 240 6% 70%;
+    --chart-5: 0  0% 30%;
+
+    /* Radius */
+    --radius: 0.5rem;
+  }
+
+  /* Apply global colours */
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* =========================================================
+   NEW: Card Styling Helpers
+   – Zig‑zag brand border & heading box for inner sections
+   ========================================================= */
+
+/* Bold red‑black‑white zig‑zag border for cards */
+.zigzag-border {
+  position: relative;
+  padding: 4px; /* makes the border visually thicker */
+}
+
+.zigzag-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 4px solid transparent;
+  border-image: repeating-linear-gradient(
+      -45deg,
+      #b91c1c 0 12px,  /* dark red / primary */
+      #000     12px 24px, /* black */
+      #fff     24px 36px  /* white */
+  ) 8; /* 8‑pixel slice width */
+  pointer-events: none; /* purely decorative */
+}
+
+/* Shadowed heading container inside each card */
+.heading-box {
+  padding: 1rem;
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
+  border: 2px solid rgba(255, 255, 255, 0.08);
+}

@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ------------- your fonts etc. ------------- */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ----- FULL‑SCREEN BACKGROUND IMAGE (fixed) ----- */
+body::before {
+  content: "";
+  position: fixed;       /* stays put on scroll */
+  inset: 0;
+  z-index: -10;          /* always behind everything */
+  background-image: url(/public/back.png);   /* <-- in /public */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  pointer-events: none;  /* so links/buttons stay clickable */
+}
+
+/* (all your colour‑vars remain unchanged) … */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  /* your :root + .dark variables stay exactly as you had them */
+  /* … */
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply text-foreground;   /* NO bg‑background here */
+  }
+}
